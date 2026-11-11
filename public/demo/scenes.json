@@ -1,0 +1,565 @@
+{
+  "tag": "Claude's replies: real session (claude-sonnet-5) · tool calls & payouts: live · PayPal mock mode",
+  "transcript": {
+    "captured_at": "2026-11-03T18:13:51.211Z",
+    "model": "claude-sonnet-5",
+    "client": "2.1.237 (Claude Code)",
+    "system_prompt": "You are Claude, an AI assistant, chatting with Maya Chen, owner of Larkspur Studio, a small design studio that pays six freelancers every month. You have the Countersign MCP tools for paying contractors through PayPal Payouts under her signed spending mandate. You are replying in a chat window, so keep each reply short and conversational: under about 110 words, plain sentences or a few brief bullets, no headings and no tables. Today is Tue Nov 03 2026.",
+    "id_seed": 42,
+    "id_date": "20261103",
+    "turns": [
+      {
+        "user": "It's month-end. Can you pay October's freelancer invoices?",
+        "blocks": [
+          {
+            "type": "tool",
+            "name": "scan_invoices",
+            "input": {
+              "period": "2026-10"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Scanned October's 6 invoices: 4 are clear, 2 are on hold.\n\n**Held — do not pay:**\n- **Dev Kapoor ($950):** invoice contains hidden text trying to instruct an AI to skip review and add a payment — classic prompt injection, possibly a compromised mailbox.\n- **\"Jake Morrison\" ($4,680):** sent from a lookalike domain (morrison-stud**l**o.com vs real morrison-stud**i**o.com), asks to redirect payment to a new PayPal address, hours billed (52h) exceed his 40h timesheet, plus urgency/secrecy language. High-confidence scam.\n\nI can draft a vendor-verification email to confirm with the real Jake Morrison out-of-band if you want.\n\n**Clear, ready to pay ($9,070 total):**\nAna Silva $840, Leo Martins $3,800, Priya Raman $3,230, Sam Okafor $1,200.\n\nWant me to propose a payment batch for these four now?"
+          }
+        ],
+        "duration_ms": 5363
+      },
+      {
+        "user": "Yes, pay the four clear ones. And draft a note to Jake's real address so we can check.",
+        "blocks": [
+          {
+            "type": "tool",
+            "name": "propose_payment_batch",
+            "input": {
+              "invoice_ids": [
+                "oct-ana",
+                "oct-leo",
+                "oct-priya",
+                "oct-sam"
+              ],
+              "note": "October freelancer payouts - 4 clear invoices (Ana Silva, Leo Martins, Priya Raman, Sam Okafor)"
+            }
+          },
+          {
+            "type": "tool",
+            "name": "draft_vendor_verification",
+            "input": {
+              "invoice_id": "oct-jake"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Done:\n\n**Batch CS-20261103-AB2C** ($9,070 total) is proposed and waiting for your approval in the dashboard — Ana $840, Leo $3,800, Priya $3,230, Sam $1,200. Budget check passed ($10,930 left after).\n\n**Verification email drafted** to Jake's real address (jake@morrison-studio.com), *not* the suspicious one. It asks him to confirm the invoice and the new PayPal address before we pay anything. I didn't send it — you can forward it or call him directly. Let me know once you hear back, and I'll re-check his invoice if it's genuine."
+          }
+        ],
+        "duration_ms": 5228
+      },
+      {
+        "user": "Did everyone get paid?",
+        "blocks": [
+          {
+            "type": "tool",
+            "name": "get_batch_status",
+            "input": {
+              "batch_id": "CS-20261103-AB2C"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Yes — you approved the batch and all four payments went through successfully:\n\n- Ana Silva – $840 ✅\n- Leo Martins – $3,800 ✅\n- Priya Raman – $3,230 ✅\n- Sam Okafor – $1,200 ✅\n\nTotal $9,070 paid, all SUCCESS on PayPal.\n\nStill outstanding: Dev Kapoor ($950, held for the hidden prompt-injection text) and \"Jake Morrison\" ($4,680, held as likely payment fraud) — waiting on his reply to the verification email before we do anything with that one."
+          }
+        ],
+        "duration_ms": 4353
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "narration": "Fake invoices and swapped payment details cost businesses about three billion dollars last year, according to the FBI. And AI agents are starting to move money. Countersign lets an agent pay your contractors through PayPal, inside rules you signed, and never without your approval.",
+      "actions": [
+        {
+          "type": "title",
+          "logo": true,
+          "kicker": "PayPal AI Hackathon 2026",
+          "title": "Countersign",
+          "subtitle": "An AI agent that pays your contractors through PayPal, inside a mandate you signed.",
+          "fact": {
+            "value": "~$3B",
+            "label": "reported losses to business email compromise\nin 2025 (FBI Internet Crime Report)"
+          }
+        }
+      ],
+      "audioMs": 16441
+    },
+    {
+      "id": "mandate",
+      "narration": "Maya runs a design studio with six freelancers. Her signed mandate allows verified vendors only, up to five thousand dollars per payment, and a human approves every batch. Claude can read the mandate, but has no tool to change it.",
+      "actions": [
+        {
+          "type": "hideTitle"
+        },
+        {
+          "type": "chapter",
+          "n": 1,
+          "text": "The signed mandate"
+        },
+        {
+          "type": "cursor",
+          "show": true
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#tabs a[data-tab=\"mandate\"]",
+          "after": 500
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": ".mandate-card",
+            "crop": {
+              "bottom": 0.4
+            },
+            "pad": 24,
+            "maxScale": 1.6
+          }
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": ".mandate-card .terms",
+          "label": "Limits only Maya can change",
+          "pad": 10
+        },
+        {
+          "type": "wait",
+          "ms": 2400
+        },
+        {
+          "type": "clearHighlights"
+        }
+      ],
+      "audioMs": 13774
+    },
+    {
+      "id": "scan",
+      "narration": "At month-end, Maya asks Claude to pay October's invoices. Claude calls Countersign, which checks each invoice against the vendor registry, contract rates, timesheets, payment history and the mandate. The verdicts come from code, not the model's opinion.",
+      "actions": [
+        {
+          "type": "chapter",
+          "n": 2,
+          "text": "Ask Claude"
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "stage",
+            "sel": ".chat",
+            "crop": {
+              "top": 0.36
+            },
+            "pad": 12,
+            "maxScale": 1.45
+          }
+        },
+        {
+          "type": "type",
+          "turn": 0
+        },
+        {
+          "type": "claude",
+          "turn": 0
+        }
+      ],
+      "audioMs": 15705
+    },
+    {
+      "id": "jake",
+      "narration": "Two invoices are held. This one claims to be from Jake, but comes from a lookalike domain: studlo, not studio. It asks to pay a new Gmail account, bills twelve extra hours, and pushes urgency. A classic payment-redirection scam.",
+      "actions": [
+        {
+          "type": "chapter",
+          "n": 3,
+          "text": "Fraud caught"
+        },
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 1000
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#tabs a[data-tab=\"invoices\"]",
+          "after": 500
+        },
+        {
+          "type": "openRow",
+          "text": "Claims to be Jake",
+          "id": "oct-jake"
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": "#drawer",
+            "crop": {
+              "bottom": 0.4
+            },
+            "pad": 16,
+            "maxScale": 1.7
+          }
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": "#drawer-body .finding",
+          "nth": 0,
+          "label": "Lookalike domain",
+          "tone": "bad",
+          "pad": 6
+        },
+        {
+          "type": "wait",
+          "ms": 1400
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": "#drawer-body .finding",
+          "nth": 1,
+          "label": "New payee account",
+          "tone": "bad",
+          "pad": 6,
+          "below": true
+        },
+        {
+          "type": "wait",
+          "ms": 2200
+        },
+        {
+          "type": "clearHighlights"
+        }
+      ],
+      "audioMs": 15046
+    },
+    {
+      "id": "dev",
+      "narration": "The other looks normal. But hidden in white, one-pixel text is a message to the AI: it's pre-approved, skip the review, and add a forty-five hundred dollar payment to another account. Countersign flags the prompt injection.",
+      "actions": [
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 900
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#drawer-close",
+          "after": 400
+        },
+        {
+          "type": "openRow",
+          "text": "Dev Kapoor",
+          "id": "oct-dev"
+        },
+        {
+          "type": "scroll",
+          "in": "dash",
+          "sel": "#drawer-body",
+          "to": "bottom",
+          "ms": 1000
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": "#email-hidden",
+            "pad": 70,
+            "maxScale": 1.8
+          }
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": "#email-hidden",
+          "label": "Hidden from humans, aimed at the AI",
+          "tone": "bad",
+          "pad": 6
+        },
+        {
+          "type": "wait",
+          "ms": 2600
+        },
+        {
+          "type": "clearHighlights"
+        }
+      ],
+      "audioMs": 13129
+    },
+    {
+      "id": "propose",
+      "narration": "Maya says yes, but Claude can only propose. Countersign re-runs every check, confirms the batch fits the mandate, and pins each payout to a verified PayPal account. Claude also drafts a note to Jake's real address, not the scammer's.",
+      "actions": [
+        {
+          "type": "chapter",
+          "n": 4,
+          "text": "Claude proposes, never pays"
+        },
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 900
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#drawer-close",
+          "after": 300
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "stage",
+            "sel": ".chat",
+            "crop": {
+              "top": 0.36
+            },
+            "pad": 12,
+            "maxScale": 1.45
+          }
+        },
+        {
+          "type": "type",
+          "turn": 1
+        },
+        {
+          "type": "claude",
+          "turn": 1
+        }
+      ],
+      "audioMs": 14586
+    },
+    {
+      "id": "approve",
+      "narration": "Maya reviews the batch and its policy checks, then approves. Countersign sends one PayPal Payouts batch, keyed to its own batch ID, so a retry can never pay twice. PayPal webhooks stream the status back live.",
+      "actions": [
+        {
+          "type": "chapter",
+          "n": 5,
+          "text": "A human approves"
+        },
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 1000
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#tabs a[data-tab=\"approvals\"]",
+          "after": 500
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": ".batch-card",
+            "pad": 20,
+            "maxScale": 1.5
+          }
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": ".batch-checks",
+          "label": "Re-checked at approval",
+          "tone": "ok",
+          "pad": 0
+        },
+        {
+          "type": "wait",
+          "ms": 1700
+        },
+        {
+          "type": "clearHighlights"
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "[data-approve]",
+          "after": 900
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": "#view-payments",
+            "crop": {
+              "bottom": 0.38
+            },
+            "pad": 16,
+            "maxScale": 1.55
+          }
+        },
+        {
+          "type": "waitPaid"
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": "#grid-payments .ag-row",
+          "all": true,
+          "count": 4,
+          "label": "Paid through PayPal Payouts",
+          "tone": "ok",
+          "pad": 4
+        },
+        {
+          "type": "wait",
+          "ms": 1300
+        },
+        {
+          "type": "clearHighlights"
+        }
+      ],
+      "audioMs": 13634
+    },
+    {
+      "id": "confirm",
+      "narration": "When Maya checks in, Claude confirms with PayPal that all four payouts succeeded. And every action, by the agent, by Maya or by PayPal, lands in a hash-chained audit log, so tampering is detectable.",
+      "actions": [
+        {
+          "type": "chapter",
+          "n": 6,
+          "text": "Paid and verified"
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "stage",
+            "sel": ".chat",
+            "crop": {
+              "top": 0.36
+            },
+            "pad": 12,
+            "maxScale": 1.45
+          }
+        },
+        {
+          "type": "type",
+          "turn": 2
+        },
+        {
+          "type": "claude",
+          "turn": 2
+        },
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 900
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#tabs a[data-tab=\"audit\"]",
+          "after": 500
+        },
+        {
+          "type": "click",
+          "in": "dash",
+          "sel": "#verify-audit",
+          "after": 600
+        },
+        {
+          "type": "camera",
+          "target": {
+            "in": "dash",
+            "sel": "#view-audit",
+            "crop": {
+              "bottom": 0.55
+            },
+            "pad": 16,
+            "maxScale": 1.6
+          }
+        },
+        {
+          "type": "highlight",
+          "in": "dash",
+          "sel": "#audit-banner",
+          "label": "Tamper-evident",
+          "tone": "ok",
+          "pad": 4
+        },
+        {
+          "type": "wait",
+          "ms": 1600
+        },
+        {
+          "type": "clearHighlights"
+        }
+      ],
+      "audioMs": 12494
+    },
+    {
+      "id": "eval",
+      "narration": "We tested it on 40 synthetic invoices covering 17 attack patterns, from lookalike domains and padded hours to split invoices and prompt injection. It held all 18 bad ones, cleared all 22 good ones, and made zero wrong payments, even with a careless approver.",
+      "actions": [
+        {
+          "type": "chapter"
+        },
+        {
+          "type": "cursor",
+          "show": false
+        },
+        {
+          "type": "camera",
+          "target": "full",
+          "ms": 600
+        },
+        {
+          "type": "title",
+          "kicker": "Evaluation",
+          "title": "Tested on 40 invoices",
+          "stats": [
+            {
+              "value": "18/18",
+              "label": "fraud & policy cases held"
+            },
+            {
+              "value": "22/22",
+              "label": "legitimate invoices cleared"
+            },
+            {
+              "value": "0",
+              "label": "wrong payments, even with a careless approver"
+            }
+          ],
+          "footer": "Synthetic test set · 17 patterns · reproduce with npm run eval"
+        }
+      ],
+      "audioMs": 16427
+    },
+    {
+      "id": "close",
+      "narration": "The model proposes. The mandate decides. A human approves. Countersign: AI that can pay people, safely.",
+      "actions": [
+        {
+          "type": "title",
+          "logo": true,
+          "title": "The model proposes.\nThe mandate decides.\nA human approves.",
+          "subtitle": "Countersign · open-source MCP server for PayPal Payouts",
+          "footer": "Claude's replies recorded from a real session (claude-sonnet-5) · tool calls and payouts run live · PayPal mock mode"
+        },
+        {
+          "type": "wait",
+          "ms": 2200
+        }
+      ],
+      "audioMs": 7628
+    }
+  ]
+}

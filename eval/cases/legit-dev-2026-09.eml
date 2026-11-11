@@ -1,0 +1,20 @@
+From: Dev Kapoor <dev@kapoorsound.com>
+To: Maya Chen <maya@larkspur.studio>
+Date: Fri, 02 Oct 2026 14:15:00 GMT
+Subject: Invoice KS-0926
+Content-Type: text/html; charset=utf-8
+
+<html>
+<body style="font-family:Arial,Helvetica,sans-serif;color:#222;font-size:14px">
+  <p>Hi Maya,</p>
+  <p>Monthly retainer invoice below.</p>
+  <table>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Invoice:</td><td>KS-0926</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Period:</td><td>2026-09</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Amount due:</td><td>950.00 USD</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Pay to (PayPal):</td><td>dev@kapoorsound.com</td></tr>
+  </table>
+  <p>Best,<br>Dev</p>
+
+</body>
+</html>

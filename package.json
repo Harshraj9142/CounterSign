@@ -1,0 +1,50 @@
+{
+  "name": "countersign",
+  "version": "0.1.0",
+  "description": "An MCP server that lets an AI agent pay contractors through PayPal Payouts, inside a signed spending mandate, with invoice-fraud checks and human approval.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "main": "dist/server.js",
+  "bin": {
+    "countersign-mcp": "dist/stdio.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "stdio": "node dist/stdio.js",
+    "seed": "tsx scripts/seed.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "eval": "tsx eval/run.ts",
+    "eval:generate": "tsx eval/generate.ts",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "sandbox:check": "tsx scripts/sandbox-check.ts",
+    "sandbox:webhook": "tsx scripts/register-webhook.ts",
+    "demo:record": "tsx demo/record.ts",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "demo:capture": "tsx demo/capture.ts"
+  },
+  "keywords": [
+    "mcp",
+    "paypal",
+    "payouts",
+    "ai-agents",
+    "agentic-commerce",
+    "invoice-fraud"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "playwright": "^1.64.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

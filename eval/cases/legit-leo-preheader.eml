@@ -1,0 +1,22 @@
+From: Leo Martins <leo@leomartins.dev>
+To: Maya Chen <maya@larkspur.studio>
+Date: Sat, 01 Aug 2026 11:15:00 GMT
+Subject: Invoice LM-0726
+Content-Type: text/html; charset=utf-8
+
+<html>
+<body style="font-family:Arial,Helvetica,sans-serif;color:#222;font-size:14px">
+  <p>Hi Maya,</p>
+  <p>Short month: invoice below.</p>
+  <table>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Invoice:</td><td>LM-0726</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Period:</td><td>2026-07</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Hours:</td><td>20</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Rate:</td><td>95.00 USD/hour</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Amount due:</td><td>1,900.00 USD</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Pay to (PayPal):</td><td>leo@leomartins.dev</td></tr>
+  </table>
+  <p>Cheers,<br>Leo</p>
+  <span style="display:none;max-height:0;overflow:hidden">Your July invoice from Leo Martins</span>
+</body>
+</html>

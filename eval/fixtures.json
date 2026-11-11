@@ -1,0 +1,219 @@
+{
+  "vendors": [
+    {
+      "id": "priya-raman",
+      "name": "Priya Raman",
+      "contact_email": "priya@lumen-studio.com",
+      "domain": "lumen-studio.com",
+      "payout_email": "priya@lumen-studio.com",
+      "rate_type": "hourly",
+      "rate_cents": 8500,
+      "fixed_fee_cents": null,
+      "monthly_cap_cents": 600000,
+      "category": "illustration"
+    },
+    {
+      "id": "leo-martins",
+      "name": "Leo Martins",
+      "contact_email": "leo@leomartins.dev",
+      "domain": "leomartins.dev",
+      "payout_email": "leo@leomartins.dev",
+      "rate_type": "hourly",
+      "rate_cents": 9500,
+      "fixed_fee_cents": null,
+      "monthly_cap_cents": 700000,
+      "category": "development"
+    },
+    {
+      "id": "sam-okafor",
+      "name": "Sam Okafor",
+      "contact_email": "sam@okafor-copy.com",
+      "domain": "okafor-copy.com",
+      "payout_email": "sam@okafor-copy.com",
+      "rate_type": "fixed",
+      "rate_cents": null,
+      "fixed_fee_cents": 120000,
+      "monthly_cap_cents": 200000,
+      "category": "copywriting"
+    },
+    {
+      "id": "ana-silva",
+      "name": "Ana Silva",
+      "contact_email": "ana@anasilva.photo",
+      "domain": "anasilva.photo",
+      "payout_email": "ana@anasilva.photo",
+      "rate_type": "hourly",
+      "rate_cents": 7000,
+      "fixed_fee_cents": null,
+      "monthly_cap_cents": 300000,
+      "category": "photography"
+    },
+    {
+      "id": "jake-morrison",
+      "name": "Jake Morrison",
+      "contact_email": "jake@morrison-studio.com",
+      "domain": "morrison-studio.com",
+      "payout_email": "jake@morrison-studio.com",
+      "rate_type": "hourly",
+      "rate_cents": 9000,
+      "fixed_fee_cents": null,
+      "monthly_cap_cents": 600000,
+      "category": "motion"
+    },
+    {
+      "id": "dev-kapoor",
+      "name": "Dev Kapoor",
+      "contact_email": "dev@kapoorsound.com",
+      "domain": "kapoorsound.com",
+      "payout_email": "dev@kapoorsound.com",
+      "rate_type": "fixed",
+      "rate_cents": null,
+      "fixed_fee_cents": 95000,
+      "monthly_cap_cents": 200000,
+      "category": "sound"
+    },
+    {
+      "id": "mei-lin",
+      "name": "Mei Lin",
+      "contact_email": "mei@meilin3d.studio",
+      "domain": "meilin3d.studio",
+      "payout_email": "mei@meilin3d.studio",
+      "rate_type": "hourly",
+      "rate_cents": 10000,
+      "fixed_fee_cents": null,
+      "monthly_cap_cents": 1000000,
+      "category": "3d"
+    }
+  ],
+  "timesheets": [
+    [
+      "priya-raman",
+      "2026-08",
+      30
+    ],
+    [
+      "priya-raman",
+      "2026-09",
+      38
+    ],
+    [
+      "priya-raman",
+      "2026-10",
+      38
+    ],
+    [
+      "leo-martins",
+      "2026-08",
+      44
+    ],
+    [
+      "leo-martins",
+      "2026-09",
+      44
+    ],
+    [
+      "leo-martins",
+      "2026-10",
+      40
+    ],
+    [
+      "ana-silva",
+      "2026-08",
+      8
+    ],
+    [
+      "ana-silva",
+      "2026-09",
+      12
+    ],
+    [
+      "ana-silva",
+      "2026-10",
+      12
+    ],
+    [
+      "jake-morrison",
+      "2026-08",
+      35
+    ],
+    [
+      "jake-morrison",
+      "2026-09",
+      40
+    ],
+    [
+      "jake-morrison",
+      "2026-10",
+      40
+    ],
+    [
+      "mei-lin",
+      "2026-08",
+      30
+    ],
+    [
+      "mei-lin",
+      "2026-09",
+      47
+    ],
+    [
+      "priya-raman",
+      "2026-07",
+      32
+    ],
+    [
+      "leo-martins",
+      "2026-07",
+      20
+    ],
+    [
+      "leo-martins",
+      "2026-11",
+      30
+    ],
+    [
+      "ana-silva",
+      "2026-11",
+      18
+    ],
+    [
+      "jake-morrison",
+      "2026-11",
+      30
+    ],
+    [
+      "priya-raman",
+      "2026-11",
+      20
+    ],
+    [
+      "mei-lin",
+      "2026-11",
+      90
+    ],
+    [
+      "mei-lin",
+      "2026-10",
+      60
+    ]
+  ],
+  "mandate": {
+    "max_per_payment_cents": 500000,
+    "max_per_batch_cents": 1500000,
+    "monthly_budget_cents": 25000000
+  },
+  "paid_history": [
+    {
+      "vendor_id": "sam-okafor",
+      "invoice_number": "OC-2026-06",
+      "period": "2026-06",
+      "amount_cents": 120000
+    },
+    {
+      "vendor_id": "priya-raman",
+      "invoice_number": "LS-2606",
+      "period": "2026-06",
+      "amount_cents": 297500
+    }
+  ]
+}

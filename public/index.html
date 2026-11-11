@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Countersign</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234338ca'/%3E%3Cpath d='M8 17l5 5 11-12' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-grid.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-quartz.css">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M8 17l5 5 11-12"/></svg>
+      <div>
+        <div class="brand-name">Countersign</div>
+        <div class="brand-sub" id="business">&nbsp;</div>
+      </div>
+    </div>
+    <div class="top-meta">
+      <span class="pill" id="mode-pill">PayPal</span>
+      <span class="pill" id="mandate-pill">Mandate</span>
+      <div class="budget" id="budget" title="Spend this month against the signed mandate">
+        <div class="budget-label"><span id="budget-text">Budget</span></div>
+        <div class="meter"><div class="meter-fill" id="budget-fill"></div></div>
+      </div>
+      <button class="btn ghost small" id="reset-demo" hidden>Reset demo</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <a href="#approvals" data-tab="approvals">Approvals <span class="badge" id="badge-approvals" hidden>0</span></a>
+    <a href="#invoices" data-tab="invoices">Invoices <span class="badge warn" id="badge-held" hidden>0</span></a>
+    <a href="#payments" data-tab="payments">Payments</a>
+    <a href="#vendors" data-tab="vendors">Vendors</a>
+    <a href="#mandate" data-tab="mandate">Mandate</a>
+    <a href="#audit" data-tab="audit">Audit log</a>
+  </nav>
+
+  <main id="main">
+    <section class="view" id="view-approvals"></section>
+
+    <section class="view" id="view-invoices" hidden>
+      <div class="view-head">
+        <div>
+          <h1>Invoices</h1>
+          <p class="sub">Every invoice is checked against the vendor registry, contracts, timesheets, payment history and the signed mandate.</p>
+        </div>
+        <button class="btn" id="rescan">Re-scan inbox</button>
+      </div>
+      <div class="chips-row" id="invoice-counts"></div>
+      <div id="grid-invoices" class="grid ag-theme-quartz-auto-dark"></div>
+    </section>
+
+    <section class="view" id="view-payments" hidden>
+      <div class="view-head">
+        <div>
+          <h1>Payments</h1>
+          <p class="sub">Status comes from PayPal webhooks and status checks, live.</p>
+        </div>
+        <button class="btn" id="reconcile">Reconcile now</button>
+      </div>
+      <div class="tiles" id="payment-tiles"></div>
+      <div id="grid-payments" class="grid ag-theme-quartz-auto-dark"></div>
+    </section>
+
+    <section class="view" id="view-vendors" hidden>
+      <div class="view-head">
+        <div>
+          <h1>Vendors</h1>
+          <p class="sub">Payouts only ever go to these verified accounts. Only you can add a vendor or change a payout account; the agent cannot.</p>
+        </div>
+        <button class="btn primary" id="add-vendor">Add vendor</button>
+      </div>
+      <div id="grid-vendors" class="grid ag-theme-quartz-auto-dark"></div>
+    </section>
+
+    <section class="view" id="view-mandate" hidden></section>
+
+    <section class="view" id="view-audit" hidden>
+      <div class="view-head">
+        <div>
+          <h1>Audit log</h1>
+          <p class="sub">Append-only and hash-chained: each entry commits to the one before it, so any edit or deletion is detectable.</p>
+        </div>
+        <button class="btn" id="verify-audit">Verify chain</button>
+      </div>
+      <div id="audit-banner" class="banner" hidden></div>
+      <div id="grid-audit" class="grid tall ag-theme-quartz-auto-dark"></div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div id="drawer-title"></div>
+      <button class="icon-btn" id="drawer-close" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <dialog id="vendor-dialog">
+    <form method="dialog" id="vendor-form">
+      <h2>Add or update a vendor</h2>
+      <p class="sub">Verify the payout account through a channel you trust (phone, in person) before saving. This is the only way a payout address can change.</p>
+      <div class="form-grid">
+        <label>Name<input name="name" required></label>
+        <label>Category<input name="category" required placeholder="illustration"></label>
+        <label>Contact email<input name="contact_email" type="email" required></label>
+        <label>Domain<input name="domain" placeholder="from contact email"></label>
+        <label class="wide">PayPal payout account<input name="payout_email" type="email" required></label>
+        <label>Rate type<select name="rate_type"><option value="hourly">Hourly</option><option value="fixed">Fixed monthly fee</option></select></label>
+        <label>Rate or fee (USD)<input name="rate" required placeholder="85.00"></label>
+        <label>Monthly cap (USD)<input name="monthly_cap" required placeholder="5000"></label>
+        <label class="wide">How did you verify the payout account?<input name="verified_via" required placeholder="Phone call with Priya, 3 Nov"></label>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn ghost" value="cancel" formnovalidate>Cancel</button>
+        <button class="btn primary" value="save">Save vendor</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toasts" id="toasts"></div>
+  <div class="demo-cursor" id="demo-cursor" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/dist/ag-grid-community.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

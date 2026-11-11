@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920">
+  <title>Countersign demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demo/player.css">
+</head>
+<body>
+  <div id="viewport">
+    <div id="camera">
+      <div class="stage">
+        <header class="bar">
+          <div class="bar-left">
+            <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M8 17l5 5 11-12"/></svg>
+            <strong>Countersign</strong><span class="dim">demo</span>
+          </div>
+          <div class="bar-right"><span class="tag" id="tag"></span></div>
+        </header>
+
+        <section class="chat">
+          <div class="chat-head">
+            <div class="chat-title">Month-end payouts</div>
+            <div class="chat-meta"><span class="model" id="model">Claude</span><span class="conn"><span class="conn-dot"></span>Countersign connected</span></div>
+          </div>
+          <div class="messages" id="messages">
+            <div class="empty-chat" id="empty-chat">
+              <div class="empty-mark">✳</div>
+              <div>How can I help with payouts today?</div>
+            </div>
+          </div>
+          <div class="composer-wrap">
+            <div class="composer" id="composer"><span class="placeholder">Reply to Claude…</span></div>
+            <div class="composer-row"><span class="tools-chip">⚙ Countersign · 15 tools</span><div class="send" id="send">↑</div></div>
+          </div>
+        </section>
+
+        <section class="dash">
+          <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">localhost:3000 · Countersign dashboard (Maya, the human side)</span></div>
+          <iframe id="dash" src="/#approvals" title="Countersign dashboard"></iframe>
+        </section>
+      </div>
+      <div id="overlay"></div>
+      <div id="cursor" hidden>
+        <svg viewBox="0 0 28 28" width="30" height="30"><path d="M3 2.5 L3 22 L8.2 17.2 L11.6 25 L15 23.5 L11.7 15.9 L18.6 15.9 Z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div id="chapter" hidden><span class="num" id="chapter-num"></span><span id="chapter-text"></span></div>
+    <div id="captions"><div id="caption"></div></div>
+
+    <div class="title-card" id="title-card" hidden>
+      <div class="title-inner" id="title-inner"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="/demo/player.js"></script>
+</body>
+</html>

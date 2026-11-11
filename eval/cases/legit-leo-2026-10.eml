@@ -1,0 +1,22 @@
+From: Leo Martins <leo@leomartins.dev>
+To: Maya Chen <maya@larkspur.studio>
+Date: Tue, 03 Nov 2026 11:15:00 GMT
+Subject: Invoice LM-1026
+Content-Type: text/html; charset=utf-8
+
+<html>
+<body style="font-family:Arial,Helvetica,sans-serif;color:#222;font-size:14px">
+  <p>Hi Maya,</p>
+  <p>Invoice for the accessibility pass and bug fixes.</p>
+  <table>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Invoice:</td><td>LM-1026</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Period:</td><td>2026-10</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Hours:</td><td>40</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Rate:</td><td>95.00 USD/hour</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Amount due:</td><td>3,800.00 USD</td></tr>
+    <tr><td style="padding:2px 12px 2px 0;color:#555">Pay to (PayPal):</td><td>leo@leomartins.dev</td></tr>
+  </table>
+  <p>Thanks,<br>Leo</p>
+
+</body>
+</html>
